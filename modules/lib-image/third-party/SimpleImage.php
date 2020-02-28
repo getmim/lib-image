@@ -163,9 +163,9 @@ class SimpleImage {
     imagepalettetotruecolor($this->image);
 
     // Load exif data from JPEG images
-    if($this->mimeType === 'image/jpeg' && function_exists('exif_read_data')) {
-      $this->exif = @exif_read_data($file);
-    }
+    // if($this->mimeType === 'image/jpeg' && function_exists('exif_read_data')) {
+      // $this->exif = @exif_read_data($file);
+    // }
 
     return $this;
   }
