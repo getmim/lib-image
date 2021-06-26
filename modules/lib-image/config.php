@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-image',
-    '__version' => '0.1.0',
+    '__version' => '0.1.1',
     '__git' => 'git@github.com:getmim/lib-image.git',
     '__license' => 'MIT',
     '__author' => [
