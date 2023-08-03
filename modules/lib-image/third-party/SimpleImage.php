@@ -58,10 +58,12 @@ class SimpleImage {
     }
 
     // Load an image through the constructor
-    if(preg_match('/^data:(.*?);/', $image)) {
-      $this->fromDataUri($image);
-    } elseif($image) {
-      $this->fromFile($image);
+    if (is_string($image)) {
+      if(preg_match('/^data:(.*?);/', $image)) {
+        $this->fromDataUri($image);
+      } elseif($image) {
+        $this->fromFile($image);
+      }
     }
   }
 
