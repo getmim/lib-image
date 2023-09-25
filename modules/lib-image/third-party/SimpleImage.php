@@ -150,7 +150,7 @@ class SimpleImage {
         $transparentColor = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
         imagecolortransparent($this->image, $transparentColor);
         imagefill($this->image, 0, 0, $transparentColor);
-        imagecopy($this->image, $gif, 0, 0, 0, 0, $width, $height);
+        imagecopy($this->image, $gif, 0, 0, 0, 0, (int)$width, (int)$height);
         imagedestroy($gif);
       }
       break;
@@ -787,7 +787,7 @@ class SimpleImage {
     // We can't use imagescale because it doesn't seem to preserve transparency properly. The
     // workaround is to create a new truecolor image, allocate a transparent color, and copy the
     // image over to it using imagecopyresampled.
-    $newImage = imagecreatetruecolor($width, $height);
+    $newImage = imagecreatetruecolor((int)$width, (int)$height);
     $transparentColor = imagecolorallocatealpha($newImage, 0, 0, 0, 127);
     imagecolortransparent($newImage, $transparentColor);
     imagefill($newImage, 0, 0, $transparentColor);
@@ -795,10 +795,10 @@ class SimpleImage {
       $newImage,
       $this->image,
       0, 0, 0, 0,
-      $width,
-      $height,
-      $this->getWidth(),
-      $this->getHeight()
+      (int)$width,
+      (int)$height,
+      (int)$this->getWidth(),
+      (int)$this->getHeight()
     );
 
     // Swap out the new image
